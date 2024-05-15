@@ -1,0 +1,24 @@
+spring:
+  profiles:
+    active: test
+  datasource:
+    url: jdbc:h2:tcp://localhost/~/querydsl
+    username: sa
+    password:
+    driver-class-name: org.h2.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: create
+    properties:
+      hibernate:
+        # System.out에 하이버네이트 실행 SQL을 남김 (권장X)
+        # show_sql: true
+        format_sql: true
+        use_sql_comments: true # 실행되는 JPQL 주석으로 볼 수 있음
+
+logging.level:
+  # logger를 통해 하이버네이트 실행 SQL을 남김 (권장)
+  org.hibernate.SQL: debug
+  # 쿼리 파라미터 로그 남기기
+#  org.hibernate.type: trace
